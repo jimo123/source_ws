@@ -16,12 +16,14 @@ include "map_builder.lua"
 
 options = {
   map_builder = MAP_BUILDER,
+  trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
   tracking_frame = "base_link",
   published_frame = "base_link",
   odom_frame = "odom",
   provide_odom_frame = true,
-  use_odometry_data = false,
+  use_odometry_data = true,
+  use_nav_sat = false,
   use_constant_odometry_variance = false,
   constant_odometry_translational_variance = 0.,
   constant_odometry_rotational_variance = 0.,
@@ -31,9 +33,18 @@ options = {
   horizontal_laser_max_range = 25.,
   horizontal_laser_missing_echo_ray_length = 1.,
   num_lasers_3d = 0,
+  num_laser_scans = 1,
+  num_multi_echo_laser_scans = 0,
+  num_subdivisions_per_laser_scan = 1,
+  num_point_clouds = 0,
   lookup_transform_timeout_sec = 0.2,
   submap_publish_period_sec = 0.3,
   pose_publish_period_sec = 5e-3,
+  trajectory_publish_period_sec = 30e-3,
+  rangefinder_sampling_ratio = 1.,
+  odometry_sampling_ratio = 1.,
+  fixed_frame_pose_sampling_ratio = 1.,
+  imu_sampling_ratio = 1.,
 }
 
 MAP_BUILDER.use_trajectory_builder_2d = true
